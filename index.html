@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Checklist de Compra Bitcoin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+        .card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #f59e0b;
+            background: rgba(30, 41, 59, 0.9);
+        }
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .indicator-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+        .buy-zone { background-color: #22c55e; box-shadow: 0 0 10px #22c55e; }
+        .neutral-zone { background-color: #f59e0b; }
+        .risk-zone { background-color: #ef4444; }
+        
+        .link-title {
+            color: #f1f5f9;
+            text-decoration: none;
+            border-bottom: 1px dashed #64748b;
+            transition: all 0.2s;
+            font-weight: 700;
+        }
+        .link-title:hover {
+            color: #f59e0b;
+            border-bottom-color: #f59e0b;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
+                ¿Es hoy un buen día para comprar BTC?
+            </h1>
+            <p class="text-slate-400 text-lg italic">Haz clic en los títulos para verificar los datos en tiempo real.</p>
+        </header>
+
+        <!-- Main Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Bloque 1: Psicología -->
+            <div class="card p-6 rounded-2xl border-blue-500/20">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="text-3xl">🧠</span>
+                    <h2 class="text-xl font-bold">Psicología y Sentimiento</h2>
+                </div>
+                
+                <div class="check-item">
+                    <div class="indicator-dot buy-zone"></div>
+                    <div>
+                        <p class="mb-1 leading-tight">
+                            <a href="https://coinmarketcap.com/charts/#fear-and-greed-index" target="_blank" class="link-title">Fear & Greed Index</a>
+                        </p>
+                        <p class="text-xs text-slate-400">
+                            <strong>Lógica:</strong> El mercado cripto es emocional. La gente suele comprar por FOMO cuando hay codicia y vender por pánico cuando hay miedo.
+                            <br><span class="text-yellow-500/80">★ Señal: Comprar en "Miedo Extremo" (< 25). Vender o no entrar en "Codicia Extrema" (> 75).</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="check-item">
+                    <div class="indicator-dot neutral-zone"></div>
+                    <div>
+                        <p class="mb-1 leading-tight">
+                            <a href="https://www.coinglass.com/LiquidationData" target="_blank" class="link-title">Mapa de Liquidaciones</a>
+                        </p>
+                        <p class="text-xs text-slate-400">
+                            <strong>Lógica:</strong> El precio suele moverse hacia donde hay más dinero para "quemar" (liquidar a los apalancados). 
+                            <br><span class="text-yellow-500/80">★ Señal: Una gran cascada de liquidaciones "Long" suele marcar el suelo de una caída.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloque 2: On-Chain -->
+            <div class="card p-6 rounded-2xl border-green-500/20">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="text-3xl">🔗</span>
+                    <h2 class="text-xl font-bold">Salud de la Red (On-Chain)</h2>
+                </div>
+                
+                <div class="check-item">
+                    <div class="indicator-dot buy-zone"></div>
+                    <div>
+                        <p class="mb-1 leading-tight">
+                            <a href="https://www.lookintobitcoin.com/charts/mvrv-zscore/" target="_blank" class="link-title">MVRV Z-Score</a>
+                        </p>
+                        <p class="text-xs text-slate-400">
+                            <strong>Lógica:</strong> Compara la capitalización de mercado con el precio al que cada moneda se movió por última vez (valor realizado).
+                            <br><span class="text-yellow-500/80">★ Señal: Zona Verde (Z-Score < 0) = Bitcoin está "regalado". Zona Roja (> 7) = Burbuja.</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="check-item">
+                    <div class="indicator-dot neutral-zone"></div>
+                    <div>
+                        <p class="mb-1 leading-tight">
+                            <a href="https://www.coinglass.com/Balance" target="_blank" class="link-title">Reservas en Exchanges</a>
+                        </p>
+                        <p class="text-xs text-slate-400">
+                            <strong>Lógica:</strong> Menos BTC en exchanges significa menos oferta lista para ser vendida (choque de oferta).
+                            <br><span class="text-yellow-500/80">★ Señal: Reservas bajando = Acumulación a largo plazo. Reservas subiendo = Riesgo de venta.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloque 3: Técnico -->
+            <div class="card p-6 rounded-2xl border-purple-500/20">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="text-3xl">📉</span>
+                    <h2 class="text-xl font-bold">Gráficos y Técnica</h2>
+                </div>
+                
+                <div class="check-item">
+                    <div class="indicator-dot buy-zone"></div>
+                    <div>
+                        <p class="mb-1 leading-tight">
+                            <a href="https://www.lookintobitcoin.com/charts/200-week-moving-average-heatmap/" target="_blank" class="link-title">MA 200 Semanas</a>
+                        </p>
+                        <p class="text-xs text-slate-400">
+                            <strong>Lógica:</strong> Históricamente, el precio de Bitcoin nunca ha permanecido mucho tiempo por debajo de su promedio de 200 semanas.
+                            <br><span class="text-yellow-500/80">★ Señal: Precio tocando la MA200 o en puntos azules/morados = Compra generacional.</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="check-item">
+                    <div class="indicator-dot risk-zone"></div>
+                    <div>
+                        <p class="mb-1 leading-tight">
+                            <a href="https://www.tradingview.com/chart/?symbol=BITSTAMP%3ABTCUSD" target="_blank" class="link-title">RSI y Medias (TradingView)</a>
+                        </p>
+                        <p class="text-xs text-slate-400">
+                            <strong>Lógica:</strong> El RSI mide el momentum. La línea morada (RSI) comparada con la amarilla (su media) indica quién manda.
+                            <br><span class="text-yellow-500/80">★ Señal: RSI Semanal < 45 cruzando al alza la línea amarilla = Inicio de tendencia fuerte.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloque 4: Macro y Flujos -->
+            <div class="card p-6 rounded-2xl border-yellow-500/30">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="text-3xl">🌍</span>
+                    <h2 class="text-xl font-bold">Macro y Flujos (Detalle)</h2>
+                </div>
+                
+                <div class="check-item">
+                    <div class="indicator-dot buy-zone"></div>
+                    <div>
+                        <p class="mb-1 leading-tight">
+                            <a href="https://www.tradingview.com/symbols/FRED-WM2NS/" target="_blank" class="link-title">Liquidez Global (M2)</a>
+                        </p>
+                        <p class="text-xs text-slate-400">
+                            <strong>Lógica:</strong> BTC es una "esponja" de liquidez. Si la M2 sube (impresión masiva), el dólar se diluye y BTC sube por escasez.
+                            <br><span class="text-yellow-500/80">★ Señal: M2 en tendencia ascendente = Entorno ideal para activos escasos.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="check-item">
+                    <div class="indicator-dot risk-zone"></div>
+                    <div>
+                        <p class="mb-1 leading-tight">
+                            <a href="https://www.tradingview.com/chart/?symbol=TVC%3ADXY" target="_blank" class="link-title">Índice Dólar (DXY)</a>
+                        </p>
+                        <p class="text-xs text-slate-400">
+                            <strong>Lógica:</strong> El rival directo. Un dólar fuerte (DXY subiendo) succiona liquidez de Bitcoin hacia el efectivo y bonos.
+                            <br><span class="text-yellow-500/80">★ Señal: DXY bajando o perdiendo soportes clave = Gasolina para el rally de BTC.</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="check-item">
+                    <div class="indicator-dot neutral-zone"></div>
+                    <div>
+                        <p class="mb-1 leading-tight">
+                            <a href="https://www.coinglass.com/bitcoin-etf" target="_blank" class="link-title">Flujos ETFs (Instituciones)</a>
+                        </p>
+                        <p class="text-xs text-slate-400">
+                            <strong>Lógica:</strong> Wall Street compra vía ETFs. Si hay entradas (Inflows), los fondos deben comprar BTC real, secando la oferta.
+                            <br><span class="text-yellow-500/80">★ Señal: Net Inflow diario > $100M confirma que las manos fuertes están comprando.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-12 p-8 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 rounded-3xl border border-yellow-500/20 text-center">
+            <h3 class="text-2xl font-bold mb-4 text-yellow-500">Regla de Oro</h3>
+            <p class="max-w-2xl mx-auto text-slate-300 text-sm italic">
+                "No compres cuando todos están eufóricos (ETFs en verde récord + Codicia Extrema). Compra cuando el entorno macro es favorable (M2 subiendo) pero el sentimiento es de duda o miedo."
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>
