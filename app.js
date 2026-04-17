@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Internationalization setup
+    const lang = navigator.language.startsWith('es') ? 'es' : 'en';
+    const dict = translations[lang];
+
+    // Apply translations to DOM elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+            el.innerText = dict[key];
+        }
+    });
     // There are 11 indicators
     // State map: indicator_id -> value (-1, 0, 1)
     const state = {
@@ -66,20 +77,20 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Color transition based on percentage
         let color = '#f59e0b'; // Neutral (orange/yellow)
-        let recText = 'Neutral / Consolidación';
+        let recText = dict.rec_neutral;
         
         if (percentage >= 75) {
             color = '#10b981'; // Strong Buy
-            recText = 'Escenario de Máxima Oportunidad';
+            recText = dict.rec_strong_buy;
         } else if (percentage >= 60) {
             color = '#34d399'; // Buy
-            recText = 'Buen momento de compra';
+            recText = dict.rec_buy;
         } else if (percentage <= 25) {
             color = '#ef4444'; // Strong Sell
-            recText = 'Escenario de Riesgo - Evitar compras';
+            recText = dict.rec_strong_sell;
         } else if (percentage <= 40) {
             color = '#f87171'; // Sell
-            recText = 'Riesgo moderado';
+            recText = dict.rec_sell;
         }
 
         gaugeFillEl.style.borderColor = color;
@@ -100,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 handleToggleClick(btn);
                 const headerTitle = btn.closest('.indicator').querySelector('.indicator-title');
                 if (headerTitle) {
-                    headerTitle.innerHTML += ` <span style="font-size: 0.75rem; color: #10b981; margin-left: 5px;">(Auto: ${labelText})</span>`;
+                    headerTitle.innerHTML += ` <span style="font-size: 0.75rem; color: #10b981; margin-left: 5px;">(${dict.auto_label}: ${labelText})</span>`;
                 }
             }
         });

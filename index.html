@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bitcoin Buy Score Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="translations.js"></script>
 </head>
 <body>
 
     <div class="container">
         <!-- Header -->
         <header>
-            <h1>Bitcoin Buy Score</h1>
-            <p class="subtitle">Analiza los indicadores en tiempo real para tomar la mejor decisión.</p>
+            <h1 data-i18n="title">Bitcoin Buy Score</h1>
+            <p class="subtitle" data-i18n="subtitle">Analyze real-time indicators to make the best decision.</p>
         </header>
 
         <!-- Score Dashboard -->
@@ -23,10 +24,10 @@
                 <div class="gauge-fill" id="gauge-fill"></div>
                 <div class="score-display">
                     <div class="score-value" id="score-value">50%</div>
-                    <div class="score-label">Buy Readiness</div>
+                    <div class="score-label" data-i18n="buy_readiness">Buy Readiness</div>
                 </div>
             </div>
-            <div class="recommendation" id="recommendation">Neutral / Precaución</div>
+            <div class="recommendation" id="recommendation" data-i18n="rec_neutral">Neutral / Consolidation</div>
         </div>
 
         <!-- Main Grid -->
@@ -36,30 +37,30 @@
             <div class="card">
                 <div class="card-header">
                     <span class="card-icon">🧠</span>
-                    <h2 class="card-title">Psicología y Sentimiento</h2>
+                    <h2 class="card-title" data-i18n="psychology_title">Psychology & Sentiment</h2>
                 </div>
                 
                 <div class="indicator">
                     <div class="indicator-header">
-                        <a href="https://coinmarketcap.com/charts/#fear-and-greed-index" target="_blank" class="indicator-title">Fear & Greed Index</a>
+                        <a href="https://coinmarketcap.com/charts/#fear-and-greed-index" target="_blank" class="indicator-title" data-i18n="fng_title">Fear & Greed Index</a>
                     </div>
-                    <p class="indicator-desc">El mercado es emocional. Comprar en miedo extremo (< 25), evitar en codicia (> 75).</p>
+                    <p class="indicator-desc" data-i18n="fng_desc">The market is emotional. Buy in extreme fear (< 25), avoid in greed (> 75).</p>
                     <div class="toggle-group">
-                        <button class="toggle-btn buy" data-indicator="fear-greed" data-value="1">Miedo (<25)</button>
-                        <button class="toggle-btn neutral active" data-indicator="fear-greed" data-value="0">Neutral</button>
-                        <button class="toggle-btn risk" data-indicator="fear-greed" data-value="-1">Codicia (>75)</button>
+                        <button class="toggle-btn buy" data-indicator="fear-greed" data-value="1" data-i18n="fng_buy">Fear (<25)</button>
+                        <button class="toggle-btn neutral active" data-indicator="fear-greed" data-value="0" data-i18n="fng_neutral">Neutral</button>
+                        <button class="toggle-btn risk" data-indicator="fear-greed" data-value="-1" data-i18n="fng_risk">Greed (>75)</button>
                     </div>
                 </div>
                 
                 <div class="indicator">
                     <div class="indicator-header">
-                        <a href="https://www.coinglass.com/LiquidationData" target="_blank" class="indicator-title">Mapa de Liquidaciones</a>
+                        <a href="https://www.coinglass.com/LiquidationData" target="_blank" class="indicator-title" data-i18n="liq_title">Liquidation Map</a>
                     </div>
-                    <p class="indicator-desc">Cascadas de liquidaciones Long suelen marcar el suelo de una caída.</p>
+                    <p class="indicator-desc" data-i18n="liq_desc">Cascades of long liquidations usually mark the bottom of a drop.</p>
                     <div class="toggle-group">
-                        <button class="toggle-btn buy" data-indicator="liquidation" data-value="1">Liq. Longs</button>
-                        <button class="toggle-btn neutral active" data-indicator="liquidation" data-value="0">Neutral</button>
-                        <button class="toggle-btn risk" data-indicator="liquidation" data-value="-1">Liq. Shorts</button>
+                        <button class="toggle-btn buy" data-indicator="liquidation" data-value="1" data-i18n="liq_buy">Liq. Longs</button>
+                        <button class="toggle-btn neutral active" data-indicator="liquidation" data-value="0" data-i18n="liq_neutral">Neutral</button>
+                        <button class="toggle-btn risk" data-indicator="liquidation" data-value="-1" data-i18n="liq_risk">Liq. Shorts</button>
                     </div>
                 </div>
             </div>
@@ -68,42 +69,42 @@
             <div class="card">
                 <div class="card-header">
                     <span class="card-icon">🔗</span>
-                    <h2 class="card-title">Salud de la Red (On-Chain)</h2>
+                    <h2 class="card-title" data-i18n="onchain_title">On-Chain Health</h2>
                 </div>
                 
                 <div class="indicator">
                     <div class="indicator-header">
-                        <a href="https://www.lookintobitcoin.com/charts/mvrv-zscore/" target="_blank" class="indicator-title">MVRV Z-Score</a>
+                        <a href="https://www.lookintobitcoin.com/charts/mvrv-zscore/" target="_blank" class="indicator-title" data-i18n="mvrv_title">MVRV Z-Score</a>
                     </div>
-                    <p class="indicator-desc">Z-Score < 0 indica infravaloración. Z-Score > 7 indica burbuja inminente.</p>
+                    <p class="indicator-desc" data-i18n="mvrv_desc">Z-Score < 0 indicates undervaluation. Z-Score > 7 indicates an impending bubble.</p>
                     <div class="toggle-group">
-                        <button class="toggle-btn buy" data-indicator="mvrv" data-value="1">Verde (<0)</button>
-                        <button class="toggle-btn neutral active" data-indicator="mvrv" data-value="0">Medio</button>
-                        <button class="toggle-btn risk" data-indicator="mvrv" data-value="-1">Rojo (>7)</button>
+                        <button class="toggle-btn buy" data-indicator="mvrv" data-value="1" data-i18n="mvrv_buy">Green (<0)</button>
+                        <button class="toggle-btn neutral active" data-indicator="mvrv" data-value="0" data-i18n="mvrv_neutral">Mid</button>
+                        <button class="toggle-btn risk" data-indicator="mvrv" data-value="-1" data-i18n="mvrv_risk">Red (>7)</button>
                     </div>
                 </div>
                 
                 <div class="indicator">
                     <div class="indicator-header">
-                        <a href="https://www.coinglass.com/Balance" target="_blank" class="indicator-title">Reservas en Exchanges</a>
+                        <a href="https://www.coinglass.com/Balance" target="_blank" class="indicator-title" data-i18n="reserves_title">Exchange Reserves</a>
                     </div>
-                    <p class="indicator-desc">Menos BTC en exchanges = choque de oferta y acumulación a largo plazo.</p>
+                    <p class="indicator-desc" data-i18n="reserves_desc">Less BTC on exchanges = supply shock and long-term accumulation.</p>
                     <div class="toggle-group">
-                        <button class="toggle-btn buy" data-indicator="reserves" data-value="1">Bajando</button>
-                        <button class="toggle-btn neutral active" data-indicator="reserves" data-value="0">Estable</button>
-                        <button class="toggle-btn risk" data-indicator="reserves" data-value="-1">Subiendo</button>
+                        <button class="toggle-btn buy" data-indicator="reserves" data-value="1" data-i18n="reserves_buy">Falling</button>
+                        <button class="toggle-btn neutral active" data-indicator="reserves" data-value="0" data-i18n="reserves_neutral">Stable</button>
+                        <button class="toggle-btn risk" data-indicator="reserves" data-value="-1" data-i18n="reserves_risk">Rising</button>
                     </div>
                 </div>
 
                 <div class="indicator">
                     <div class="indicator-header">
-                        <span class="indicator-title">Bandas de Edad UTXO</span>
+                        <span class="indicator-title" data-i18n="utxo_title">UTXO Age Bands</span>
                     </div>
-                    <p class="indicator-desc">Si los "holders" a largo plazo (> 1 año) aumentan, suele señalar un mínimo de mercado.</p>
+                    <p class="indicator-desc" data-i18n="utxo_desc">If long-term holders (> 1 year) increase, it usually signals a market bottom.</p>
                     <div class="toggle-group">
-                        <button class="toggle-btn buy" data-indicator="utxo" data-value="1">Aumentando</button>
-                        <button class="toggle-btn neutral active" data-indicator="utxo" data-value="0">Estable</button>
-                        <button class="toggle-btn risk" data-indicator="utxo" data-value="-1">Distribución</button>
+                        <button class="toggle-btn buy" data-indicator="utxo" data-value="1" data-i18n="utxo_buy">Increasing</button>
+                        <button class="toggle-btn neutral active" data-indicator="utxo" data-value="0" data-i18n="utxo_neutral">Stable</button>
+                        <button class="toggle-btn risk" data-indicator="utxo" data-value="-1" data-i18n="utxo_risk">Distributing</button>
                     </div>
                 </div>
             </div>
@@ -112,42 +113,42 @@
             <div class="card">
                 <div class="card-header">
                     <span class="card-icon">📉</span>
-                    <h2 class="card-title">Análisis Técnico y Ciclos</h2>
+                    <h2 class="card-title" data-i18n="technical_title">Technical Analysis & Cycles</h2>
                 </div>
                 
                 <div class="indicator">
                     <div class="indicator-header">
-                        <span class="indicator-title">Ciclo de 4 Años y Halving</span>
+                        <span class="indicator-title" data-i18n="halving_title">4-Year Cycle & Halving</span>
                     </div>
-                    <p class="indicator-desc">El precio suele tocar fondo unos 477 días antes del halving y alcanzar el pico 1.5 años después.</p>
+                    <p class="indicator-desc" data-i18n="halving_desc">Price usually bottoms ~477 days before halving and peaks 1.5 years after.</p>
                     <div class="toggle-group">
-                        <button class="toggle-btn buy" data-indicator="halving" data-value="1">Pre-Halving</button>
-                        <button class="toggle-btn neutral active" data-indicator="halving" data-value="0">Post-Halving Medio</button>
-                        <button class="toggle-btn risk" data-indicator="halving" data-value="-1">Pico (1-1.5 años)</button>
-                    </div>
-                </div>
-                
-                <div class="indicator">
-                    <div class="indicator-header">
-                        <a href="https://www.lookintobitcoin.com/charts/200-week-moving-average-heatmap/" target="_blank" class="indicator-title">MA 200 Semanas</a>
-                    </div>
-                    <p class="indicator-desc">Tocar la MA200 suele ser compra generacional. Muy por encima es riesgo.</p>
-                    <div class="toggle-group">
-                        <button class="toggle-btn buy" data-indicator="ma200" data-value="1">Cerca/Debajo</button>
-                        <button class="toggle-btn neutral active" data-indicator="ma200" data-value="0">Medio</button>
-                        <button class="toggle-btn risk" data-indicator="ma200" data-value="-1">Muy Arriba</button>
+                        <button class="toggle-btn buy" data-indicator="halving" data-value="1" data-i18n="halving_buy">Pre-Halving</button>
+                        <button class="toggle-btn neutral active" data-indicator="halving" data-value="0" data-i18n="halving_neutral">Mid Post-Halving</button>
+                        <button class="toggle-btn risk" data-indicator="halving" data-value="-1" data-i18n="halving_risk">Peak (1-1.5 yrs)</button>
                     </div>
                 </div>
                 
                 <div class="indicator">
                     <div class="indicator-header">
-                        <a href="https://www.tradingview.com/chart/?symbol=BITSTAMP%3ABTCUSD" target="_blank" class="indicator-title">RSI Semanal</a>
+                        <a href="https://www.lookintobitcoin.com/charts/200-week-moving-average-heatmap/" target="_blank" class="indicator-title" data-i18n="ma200_title">200-Week MA</a>
                     </div>
-                    <p class="indicator-desc">RSI < 30 indica sobreventa extrema (buena compra). Cruces alcistas en 40-45 inician tendencia.</p>
+                    <p class="indicator-desc" data-i18n="ma200_desc">Touching the MA200 is usually a generational buy. High above is risky.</p>
                     <div class="toggle-group">
-                        <button class="toggle-btn buy" data-indicator="rsi" data-value="1">Bajo (<45)</button>
-                        <button class="toggle-btn neutral active" data-indicator="rsi" data-value="0">Medio</button>
-                        <button class="toggle-btn risk" data-indicator="rsi" data-value="-1">Alto (>70)</button>
+                        <button class="toggle-btn buy" data-indicator="ma200" data-value="1" data-i18n="ma200_buy">Near/Below</button>
+                        <button class="toggle-btn neutral active" data-indicator="ma200" data-value="0" data-i18n="ma200_neutral">Mid</button>
+                        <button class="toggle-btn risk" data-indicator="ma200" data-value="-1" data-i18n="ma200_risk">High Above</button>
+                    </div>
+                </div>
+                
+                <div class="indicator">
+                    <div class="indicator-header">
+                        <a href="https://www.tradingview.com/chart/?symbol=BITSTAMP%3ABTCUSD" target="_blank" class="indicator-title" data-i18n="rsi_title">Weekly RSI</a>
+                    </div>
+                    <p class="indicator-desc" data-i18n="rsi_desc">RSI < 30 indicates extreme oversold (good buy). Bullish crosses at 40-45 start trends.</p>
+                    <div class="toggle-group">
+                        <button class="toggle-btn buy" data-indicator="rsi" data-value="1" data-i18n="rsi_buy">Low (<45)</button>
+                        <button class="toggle-btn neutral active" data-indicator="rsi" data-value="0" data-i18n="rsi_neutral">Mid</button>
+                        <button class="toggle-btn risk" data-indicator="rsi" data-value="-1" data-i18n="rsi_risk">High (>70)</button>
                     </div>
                 </div>
             </div>
@@ -156,42 +157,42 @@
             <div class="card">
                 <div class="card-header">
                     <span class="card-icon">🌍</span>
-                    <h2 class="card-title">Macro y Flujos</h2>
+                    <h2 class="card-title" data-i18n="macro_title">Macro & Flows</h2>
                 </div>
                 
                 <div class="indicator">
                     <div class="indicator-header">
-                        <a href="https://www.tradingview.com/symbols/FRED-WM2NS/" target="_blank" class="indicator-title">Liquidez Global (M2)</a>
+                        <a href="https://www.tradingview.com/symbols/FRED-WM2NS/" target="_blank" class="indicator-title" data-i18n="m2_title">Global Liquidity (M2)</a>
                     </div>
-                    <p class="indicator-desc">M2 en tendencia ascendente es el entorno ideal para activos escasos como BTC.</p>
+                    <p class="indicator-desc" data-i18n="m2_desc">M2 in an uptrend is the ideal environment for scarce assets like BTC.</p>
                     <div class="toggle-group">
-                        <button class="toggle-btn buy" data-indicator="m2" data-value="1">Subiendo</button>
-                        <button class="toggle-btn neutral active" data-indicator="m2" data-value="0">Lateral</button>
-                        <button class="toggle-btn risk" data-indicator="m2" data-value="-1">Bajando</button>
+                        <button class="toggle-btn buy" data-indicator="m2" data-value="1" data-i18n="m2_buy">Rising</button>
+                        <button class="toggle-btn neutral active" data-indicator="m2" data-value="0" data-i18n="m2_neutral">Sideways</button>
+                        <button class="toggle-btn risk" data-indicator="m2" data-value="-1" data-i18n="m2_risk">Falling</button>
                     </div>
                 </div>
 
                 <div class="indicator">
                     <div class="indicator-header">
-                        <a href="https://www.tradingview.com/chart/?symbol=TVC%3ADXY" target="_blank" class="indicator-title">Índice Dólar (DXY)</a>
+                        <a href="https://www.tradingview.com/chart/?symbol=TVC%3ADXY" target="_blank" class="indicator-title" data-i18n="dxy_title">US Dollar Index (DXY)</a>
                     </div>
-                    <p class="indicator-desc">Dólar bajando = Gasolina para el rally de BTC. Dólar subiendo = Riesgo.</p>
+                    <p class="indicator-desc" data-i18n="dxy_desc">Dollar falling = Fuel for BTC rally. Dollar rising = Risk.</p>
                     <div class="toggle-group">
-                        <button class="toggle-btn buy" data-indicator="dxy" data-value="1">Bajando</button>
-                        <button class="toggle-btn neutral active" data-indicator="dxy" data-value="0">Lateral</button>
-                        <button class="toggle-btn risk" data-indicator="dxy" data-value="-1">Subiendo</button>
+                        <button class="toggle-btn buy" data-indicator="dxy" data-value="1" data-i18n="dxy_buy">Falling</button>
+                        <button class="toggle-btn neutral active" data-indicator="dxy" data-value="0" data-i18n="dxy_neutral">Sideways</button>
+                        <button class="toggle-btn risk" data-indicator="dxy" data-value="-1" data-i18n="dxy_risk">Rising</button>
                     </div>
                 </div>
                 
                 <div class="indicator">
                     <div class="indicator-header">
-                        <a href="https://www.coinglass.com/bitcoin-etf" target="_blank" class="indicator-title">Flujos ETFs</a>
+                        <a href="https://www.coinglass.com/bitcoin-etf" target="_blank" class="indicator-title" data-i18n="etf_title">ETF Flows</a>
                     </div>
-                    <p class="indicator-desc">Inflows diarios > $100M confirman compras institucionales y secan la oferta.</p>
+                    <p class="indicator-desc" data-i18n="etf_desc">Daily inflows > $100M confirm institutional buying and drain supply.</p>
                     <div class="toggle-group">
-                        <button class="toggle-btn buy" data-indicator="etf" data-value="1">Inflows</button>
-                        <button class="toggle-btn neutral active" data-indicator="etf" data-value="0">Mixtos</button>
-                        <button class="toggle-btn risk" data-indicator="etf" data-value="-1">Outflows</button>
+                        <button class="toggle-btn buy" data-indicator="etf" data-value="1" data-i18n="etf_buy">Inflows</button>
+                        <button class="toggle-btn neutral active" data-indicator="etf" data-value="0" data-i18n="etf_neutral">Mixed</button>
+                        <button class="toggle-btn risk" data-indicator="etf" data-value="-1" data-i18n="etf_risk">Outflows</button>
                     </div>
                 </div>
             </div>
@@ -200,9 +201,9 @@
 
         <!-- Footer -->
         <footer>
-            <h3 class="footer-title">Recomendación Estratégica: DCA</h3>
-            <p class="footer-text">
-                Dado que no existe el "momento perfecto", la estrategia más efectiva para mitigar riesgos es el Dollar Cost Averaging (DCA): invertir cantidades fijas regularmente para suavizar el precio de entrada, aumentando la cantidad solo cuando los indicadores señalen "Miedo" o "Minusvaloración".
+            <h3 class="footer-title" data-i18n="footer_title">Strategic Recommendation: DCA</h3>
+            <p class="footer-text" data-i18n="footer_desc">
+                Since there is no 'perfect moment', the most effective risk-mitigation strategy is Dollar Cost Averaging (DCA): invest fixed amounts regularly to smooth the entry price, increasing the amount only when indicators signal 'Fear' or 'Undervaluation'.
             </p>
         </footer>
     </div>
